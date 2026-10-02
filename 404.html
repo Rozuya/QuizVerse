@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark" data-motion="on">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page introuvable — QuizVerse</title>
+<meta name="description" content="QuizVerse — Teste tes connaissances. La page demandée n’existe pas.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="./site.webmanifest">
+<link rel="stylesheet" href="./css/themes.css">
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/animations.css">
+<link rel="stylesheet" href="./css/responsive.css">
+<style>
+  body { display: grid; place-items: center; min-height: 100vh; margin: 0; text-align: center; padding: 24px; }
+  .nf { max-width: 620px; }
+  .nf__code { font-size: clamp(4rem, 14vw, 8rem); font-weight: 900; letter-spacing: -.05em; line-height: 1;
+    background: linear-gradient(120deg, #7c5cff, #22d3ee); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .nf__mark { width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center; margin: 0 auto 20px;
+    background: linear-gradient(120deg, #7c5cff, #22d3ee); color: #fff; font-weight: 800; font-size: 1.6rem; box-shadow: 0 8px 34px -6px rgba(124,92,255,.55); }
+  .nf__links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 26px; }
+  .nf a.link { display: inline-block; padding: 11px 20px; border-radius: 12px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--text); text-decoration: none; font-weight: 650; font-size: .9rem; }
+  .nf a.link:hover { border-color: var(--accent); background: var(--surface-2); }
+  .nf a.primary { background: linear-gradient(120deg, #7c5cff, #22d3ee); color: #fff; border-color: transparent;
+    box-shadow: 0 8px 34px -6px rgba(124,92,255,.55); font-weight: 750; }
+</style>
+</head>
+<body>
+<main class="nf">
+  <div class="nf__mark" aria-hidden="true">QV</div>
+  <div class="nf__code">404</div>
+  <h1>Cette page n’existe pas dans l’univers QuizVerse</h1>
+  <p style="color:var(--text-2);margin:0 auto;max-width:46ch">
+    Le lien que tu as suivi est introuvable. Reviens à l’accueil ou explore les quiz disponibles.
+  </p>
+  <div class="nf__links">
+    <a class="link primary" href="./">🏠 Accueil</a>
+    <a class="link" href="./#/">🧭 Explorer</a>
+    <a class="link" href="./#/categories">🗂️ Catégories</a>
+    <a class="link" href="./#/aide">❓ Aide</a>
+  </div>
+</main>
+<script>
+  /* Redirige automatiquement vers la bonne page d'accueil si l'URL contient un # */
+  (function () {
+    var h = location.hash;
+    if (h && h.length > 1) {
+      setTimeout(function () { location.replace('./' + h); }, 900);
+    }
+  })();
+</script>
+</body>
+</html>

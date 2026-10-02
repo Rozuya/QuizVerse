@@ -1,0 +1,16 @@
+# QuizVerse — fichiers ignorés par Git
+node_modules/
+npm-debug.log*
+.DS_Store
+Thumbs.db
+*.log
+.cache/
+.temp/
+tmp/
+*.tmp
+*.bak
+*.swp
+.idea/
+.vscode/
+*.mp4
+*.mov

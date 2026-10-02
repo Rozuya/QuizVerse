@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark" data-motion="on">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<title>QuizVerse — Teste tes connaissances</title>
+
+<meta name="description" content="QuizVerse est une plateforme de quiz 100 % solo sur les animés, films, séries, sports, jeux vidéo et culture générale.">
+<meta name="author" content="QuizVerse">
+<meta name="keywords" content="quiz, quiz français, culture générale, animés, films, séries, sports, jeux vidéo, solo, hors ligne, badges, XP">
+<meta name="theme-color" content="#07070f">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="./">
+
+<!-- Favicons (SVG uniquement : aucun fichier binaire nécessaire) -->
+<link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="mask-icon" href="./assets/icons/favicon.svg" color="#7c5cff">
+<link rel="manifest" href="./site.webmanifest">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="QuizVerse">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="QuizVerse — Teste tes connaissances">
+<meta property="og:description" content="QuizVerse est une plateforme de quiz 100 % solo sur les animés, films, séries, sports, jeux vidéo et culture générale.">
+<meta property="og:image" content="./assets/images/og-image.svg">
+<meta property="og:image:type" content="image/svg+xml">
+<meta property="og:image:alt" content="QuizVerse — Teste tes connaissances">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="QuizVerse — Teste tes connaissances">
+<meta name="twitter:description" content="Plateforme de quiz 100 % solo : animés, films, séries, sports, jeux vidéo et culture générale.">
+<meta name="twitter:image" content="./assets/images/og-image.svg">
+
+<!-- Préchargement -->
+<link rel="preload" href="./css/themes.css" as="style">
+<link rel="preload" href="./css/style.css" as="style">
+<link rel="preload" href="./data/questions.json" as="fetch" crossorigin="anonymous">
+
+<link rel="stylesheet" href="./css/themes.css">
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/animations.css">
+<link rel="stylesheet" href="./css/responsive.css">
+
+<script>
+  /* Applique le thème et le mouvement avant le rendu pour éviter tout clignotement. */
+  (function () {
+    try {
+      var s = JSON.parse(localStorage.getItem('quizverse:settings') || '{}');
+      var t = s.theme || 'dark';
+      var allowed = ['dark', 'amoled', 'light', 'neon', 'cyber'];
+      document.documentElement.setAttribute('data-theme', allowed.indexOf(t) >= 0 ? t : 'dark');
+      document.documentElement.setAttribute('data-motion', s.reduceMotion ? 'off' : 'on');
+    } catch (e) { /* valeur par défaut : dark */ }
+    /* URL du worker de synthèse audio (chemin relatif : compatible GitHub Pages). */
+    window.QV_WORKER_URL = './js/audio-worker.js';
+  })();
+</script>
+
+<script src="./js/utils.js"></script>
+<script src="./js/sources.js"></script>
+<script src="./js/art.js"></script>
+<script src="./js/storage.js"></script>
+<script src="./js/data.js"></script>
+<script src="./js/ui.js"></script>
+<script src="./js/audio.js"></script>
+<script src="./js/music.js"></script>
+<script src="./js/xp.js"></script>
+<script src="./js/mastery.js"></script>
+<script src="./js/achievements.js"></script>
+<script src="./js/challenges.js"></script>
+<script src="./js/recommend.js"></script>
+<script src="./js/daily.js"></script>
+<script src="./js/quiz.js"></script>
+<script src="./js/profile.js"></script>
+<script src="./js/statistics.js"></script>
+<script src="./js/settings.js"></script>
+<script src="./js/views-core.js"></script>
+<script src="./js/views-quiz.js"></script>
+<script src="./js/views-me.js"></script>
+<script src="./js/app.js"></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu principal</a>
+
+<!-- Décor -->
+<div class="qv-backdrop" aria-hidden="true"></div>
+<div class="qv-grid" aria-hidden="true"></div>
+<div class="qv-orbs" aria-hidden="true">
+  <div class="qv-orb qv-orb--1"></div>
+  <div class="qv-orb qv-orb--2"></div>
+  <div class="qv-orb qv-orb--3"></div>
+</div>
+
+<!-- En-tête -->
+<header class="qv-header" id="qv-header">
+  <div class="qv-header__inner">
+
+    <a class="brand" href="#/" aria-label="QuizVerse, retour à l'accueil">
+      <span class="brand__mark" aria-hidden="true">QV</span>
+      <span>
+        <span class="brand__name">Quiz<span>Verse</span></span>
+        <span class="brand__tag">Teste tes connaissances</span>
+      </span>
+    </a>
+
+    <div class="searchbox" role="search">
+      <span class="searchbox__icon" aria-hidden="true">⌕</span>
+      <input id="search-input" class="searchbox__input" type="search" autocomplete="off" spellcheck="false"
+             placeholder="Rechercher un univers, une catégorie…" aria-label="Recherche globale"
+             role="combobox" aria-expanded="false" aria-controls="search-suggestions" aria-autocomplete="list">
+      <kbd class="searchbox__kbd" aria-hidden="true">/</kbd>
+      <div class="suggestions" id="search-suggestions" role="listbox" hidden></div>
+    </div>
+
+    <nav class="qv-nav" id="qv-nav" aria-label="Navigation principale">
+      <a href="#/" data-nav="/">Accueil</a>
+      <a href="#/explorer" data-nav="/explorer">Explorer</a>
+      <a href="#/categories" data-nav="/categories">Catégories</a>
+      <a href="#/profil" data-nav="/profil">Mon profil</a>
+      <a href="#/statistiques" data-nav="/statistiques">Statistiques</a>
+      <a href="#/badges" data-nav="/badges">Badges</a>
+      <a href="#/defis" data-nav="/defis">Défis</a>
+      <a href="#/parametres" data-nav="/parametres">Paramètres</a>
+    </nav>
+
+    <div class="qv-header__actions">
+      <button class="icon-btn" id="theme-btn" type="button" aria-label="Changer de thème" title="Thème">◐</button>
+      <button class="icon-btn" id="music-btn" type="button" aria-label="Activer ou couper la musique" title="Musique" aria-pressed="false">♪</button>
+      <button class="icon-btn icon-btn--avatar" id="avatar-btn" type="button" aria-label="Mon profil" title="Mon profil">
+        <span id="header-avatar" aria-hidden="true"></span>
+      </button>
+      <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Contenu -->
+<main id="main" tabindex="-1">
+  <div class="loader" id="boot-loader">
+    <div class="loader__ring" aria-hidden="true"></div>
+    <p class="loader__text">Chargement de l’univers QuizVerse…</p>
+    <noscript><p class="loader__text">QuizVerse a besoin de JavaScript pour fonctionner.</p></noscript>
+  </div>
+</main>
+
+<!-- Lecteur musical -->
+<div class="music-player" id="music-player" role="region" aria-label="Lecteur musical QuizVerse">
+  <div class="music-player__progress" aria-hidden="true"><i id="music-progress"></i></div>
+  <div class="music-player__main">
+    <div class="music-player__cover" aria-hidden="true">
+      <span class="note-icon">♫</span>
+      <span class="equalizer"><i></i><i></i><i></i></span>
+    </div>
+    <div class="music-player__info">
+      <div class="music-player__label">♫ QUIZVERSE MUSIC</div>
+      <div class="music-player__title" id="music-title">Aucune piste</div>
+    </div>
+    <div class="music-player__btns">
+      <button class="music-player__btn" id="music-prev" type="button" aria-label="Piste précédente" title="Piste précédente">⏮</button>
+      <button class="music-player__btn music-player__btn--main" id="music-toggle" type="button" aria-label="Lire la musique" title="Lecture / Pause">▶</button>
+      <button class="music-player__btn" id="music-next" type="button" aria-label="Piste suivante" title="Piste suivante">⏭</button>
+      <button class="music-player__btn" id="music-mute" type="button" aria-label="Couper le son" title="Couper le son">🔊</button>
+    </div>
+  </div>
+  <div class="music-player__expand" id="music-expand">
+    <label class="sr-only" for="music-vol">Volume de la musique</label>
+    <input class="range music-player__vol" id="music-vol" type="range" min="0" max="100" step="1" value="45">
+    <span class="music-player__volval" id="music-volval">45%</span>
+    <button class="music-player__btn" id="music-expand-btn" type="button" aria-label="Options du lecteur" title="Options">⋯</button>
+  </div>
+</div>
+
+<!-- Toasts -->
+<div class="toasts" id="toasts" role="status" aria-live="polite" aria-atomic="false"></div>
+
+<!-- Modale -->
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal__box" id="modal-box"></div>
+</div>
+
+<!-- Pied de page -->
+<footer class="qv-footer">
+  <div class="qv-footer__inner">
+    <div>
+      <strong>QuizVerse</strong> — Teste tes connaissances.<br>
+      <span class="text-xs">Plateforme de quiz 100 % solo. Aucune donnée ne quitte ton navigateur.</span>
+    </div>
+    <nav class="qv-footer__links" aria-label="Liens de pied de page">
+      <a href="#/aide">Aide</a>
+      <a href="#/parametres">Paramètres</a>
+      <a href="#/credits">Crédits</a>
+    </nav>
+  </div>
+  <p class="qv-footer__note">
+    Projet statique hébergé sur GitHub Pages · Sauvegarde locale via localStorage ·
+    Musiques et effets sonores générés pour ce projet (domaine public).
+  </p>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "QuizVerse",
+  "alternateName": "QuizVerse — Teste tes connaissances",
+  "description": "QuizVerse est une plateforme de quiz 100 % solo sur les animés, films, séries, sports, jeux vidéo et culture générale.",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Tous",
+  "inLanguage": "fr-FR",
+  "browserRequirements": "Navigateur moderne avec JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+}
+</script>
+
+</body>
+</html>

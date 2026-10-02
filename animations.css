@@ -1,0 +1,203 @@
+/* ==========================================================================
+   QuizVerse — animations & micro-interactions
+   Toutes les animations sont désactivées quand l'utilisateur active
+   « Réduire les animations » ou quand le système demande moins de mouvement.
+   ========================================================================== */
+
+@keyframes qv-spin { to { transform: rotate(360deg); } }
+
+@keyframes qv-shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(220%); } }
+
+@keyframes qv-track-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+@keyframes qv-shimmer-bg {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes qv-eq {
+  0%, 100% { transform: scaleY(.35); }
+  50% { transform: scaleY(1); }
+}
+
+@keyframes qv-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .65; transform: scale(1.05); }
+}
+
+@keyframes qv-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-9px) rotate(1.5deg); }
+}
+
+@keyframes qv-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes qv-toast-in {
+  from { opacity: 0; transform: translateX(26px) scale(.96); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes qv-toast-out {
+  to { opacity: 0; transform: translateX(26px) scale(.96); }
+}
+
+@keyframes qv-confetti {
+  0% { transform: translate3d(0, -20px, 0) rotate(0deg); opacity: 1; }
+  100% { transform: translate3d(var(--dx, 0), 105vh, 0) rotate(var(--rot, 360deg)); opacity: 0; }
+}
+
+@keyframes qv-fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes qv-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes qv-scale-in {
+  from { opacity: 0; transform: scale(.94) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes qv-pop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.13); }
+  100% { transform: scale(1); }
+}
+
+@keyframes qv-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-7px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(3px); }
+}
+
+@keyframes qv-shimmer-xp {
+  from { background-position: -220% 0; }
+  to { background-position: 220% 0; }
+}
+
+@keyframes qv-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .35; }
+}
+
+@keyframes qv-rise-xp {
+  from { opacity: 1; transform: translate(-50%, 0) scale(1); }
+  to { opacity: 0; transform: translate(-50%, -76px) scale(1.25); }
+}
+
+/* ------------------------------------------------------ classes d'entrée -- */
+
+.qv-anim-in { animation: qv-fade-up .45s cubic-bezier(.2,.8,.3,1) both; }
+.qv-anim-in--delay-1 { animation-delay: .06s; }
+.qv-anim-in--delay-2 { animation-delay: .12s; }
+.qv-anim-in--delay-3 { animation-delay: .18s; }
+.qv-anim-in--delay-4 { animation-delay: .24s; }
+
+.qv-page-enter { animation: qv-fade-up .38s cubic-bezier(.2,.8,.3,1) both; }
+.qv-scale-in { animation: qv-scale-in .32s cubic-bezier(.2,.9,.3,1) both; }
+
+.qv-pop { animation: qv-pop .38s cubic-bezier(.2,1.5,.4,1) both; }
+.qv-shake { animation: qv-shake .4s ease; }
+.qv-blink { animation: qv-blink 1.1s ease-in-out infinite; }
+
+/* ------------------------------------------------------- effets de jeu --- */
+
+.answer.is-correct.qv-pop { animation: qv-pop .42s cubic-bezier(.2,1.6,.4,1); }
+.answer.is-wrong.qv-shake { animation: qv-shake .42s ease; }
+.question-card.qv-enter { animation: qv-scale-in .34s cubic-bezier(.2,.9,.3,1) both; }
+.question-card.qv-enter--back { animation-name: qv-fade-in; }
+
+.results__big.qv-pop { animation: qv-pop .55s cubic-bezier(.2,1.5,.4,1) both; }
+
+.xp-bar { position: relative; overflow: hidden; }
+.xp-bar .bar__fill {
+  background-image: var(--grad-accent);
+  background-size: 220% 100%;
+  animation: qv-shimmer-xp 3.2s linear infinite;
+}
+
+.xp-float {
+  position: absolute; left: 50%; top: 0;
+  font-weight: 900; font-size: 1.5rem;
+  color: var(--yellow);
+  pointer-events: none;
+  animation: qv-rise-xp 1.25s cubic-bezier(.2,.8,.3,1) forwards;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, .5);
+  z-index: 5;
+}
+
+.badge-tile.is-new { animation: qv-pop .6s cubic-bezier(.2,1.6,.4,1) both; }
+.badge-tile.is-new::after {
+  content: 'NOUVEAU'; position: absolute; top: 6px; left: 6px;
+  font-size: .52rem; font-weight: 900; letter-spacing: .1em;
+  background: var(--red); color: #fff;
+  padding: 2px 6px; border-radius: 5px;
+}
+
+.ring.qv-pop { animation: qv-pop .5s cubic-bezier(.2,1.5,.4,1) both; }
+
+.level-badge.qv-levelup { animation: qv-pop .7s cubic-bezier(.2,1.6,.4,1); }
+
+/* --------------------------------------- halo qui suit le curseur (cartes) */
+
+.card--hover, .cat-card, .quiz-card {
+  --mx: 50%;
+  --my: 0%;
+}
+
+/* ------------------------------------------------------------ utilitaires */
+
+.qv-stagger > * { animation: qv-fade-up .42s cubic-bezier(.2,.8,.3,1) both; }
+.qv-stagger > *:nth-child(1) { animation-delay: .02s; }
+.qv-stagger > *:nth-child(2) { animation-delay: .06s; }
+.qv-stagger > *:nth-child(3) { animation-delay: .1s; }
+.qv-stagger > *:nth-child(4) { animation-delay: .14s; }
+.qv-stagger > *:nth-child(5) { animation-delay: .18s; }
+.qv-stagger > *:nth-child(6) { animation-delay: .22s; }
+.qv-stagger > *:nth-child(7) { animation-delay: .26s; }
+.qv-stagger > *:nth-child(8) { animation-delay: .3s; }
+.qv-stagger > *:nth-child(n+9) { animation-delay: .34s; }
+
+/* ==========================================================================
+   PRÉFÉRENCE UTILISATEUR : mouvement réduit
+   Activée par le réglage « Réduire les animations » ou par prefers-reduced-motion.
+   ========================================================================== */
+
+html[data-motion='off'] *,
+html[data-motion='off'] *::before,
+html[data-motion='off'] *::after {
+  animation-duration: .001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: .001ms !important;
+  scroll-behavior: auto !important;
+}
+
+html[data-motion='off'] .confetti-layer,
+html[data-motion='off'] .qv-orbs { display: none !important; }
+
+html[data-motion='off'] .bar__fill::after,
+html[data-motion='off'] .equalizer i,
+html[data-motion='off'] .hero__tile { animation: none !important; }
+
+html[data-motion='off'] .bar__fill { transition: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion='on']) *,
+  html:not([data-motion='on']) *::before,
+  html:not([data-motion='on']) *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  html:not([data-motion='on']) .confetti-layer,
+  html:not([data-motion='on']) .qv-orbs { display: none !important; }
+}

@@ -1,0 +1,200 @@
+{
+  "version": 1,
+  "note": "Métadonnées des catégories de QuizVerse. Le nombre de questions de chaque univers est calculé automatiquement au chargement à partir des questions réellement présentes, afin que ce fichier reste valide même après ajout ou suppression de questions.",
+  "countSource": "runtime",
+  "categories": [
+    {
+      "id": "animes",
+      "label": "Animés & Mangas",
+      "emoji": "🍥",
+      "color": "#f59e0b",
+      "description": "Les grandes séries d’animation japonaises et leurs mangas.",
+      "subs": [
+        { "id": "dragonball", "label": "Dragon Ball" },
+        { "id": "naruto", "label": "Naruto" },
+        { "id": "onepiece", "label": "One Piece" },
+        { "id": "bleach", "label": "Bleach" },
+        { "id": "jujutsu", "label": "Jujutsu Kaisen" },
+        { "id": "demonslayer", "label": "Demon Slayer" },
+        { "id": "mha", "label": "My Hero Academia" },
+        { "id": "hxh", "label": "Hunter x Hunter" },
+        { "id": "aot", "label": "Attack on Titan" },
+        { "id": "pokemon", "label": "Pokémon" },
+        { "id": "deathnote", "label": "Death Note" },
+        { "id": "sololeveling", "label": "Solo Leveling" },
+        { "id": "opm", "label": "One Punch Man" },
+        { "id": "chainsaw", "label": "Chainsaw Man" },
+        { "id": "jojo", "label": "JoJo's Bizarre Adventure" }
+      ]
+    },
+    {
+      "id": "films",
+      "label": "Films & Séries",
+      "emoji": "🎬",
+      "color": "#f43f5e",
+      "description": "Cinéma, séries télévisées, animation et genres.",
+      "subs": [
+        { "id": "hp", "label": "Harry Potter" },
+        { "id": "marvel", "label": "Marvel" },
+        { "id": "dc", "label": "DC Comics" },
+        { "id": "starwars", "label": "Star Wars" },
+        { "id": "disney", "label": "Disney" },
+        { "id": "pixar", "label": "Pixar" },
+        { "id": "netflix", "label": "Netflix" },
+        { "id": "seriesfr", "label": "Séries françaises" },
+        { "id": "seriesus", "label": "Séries américaines" },
+        { "id": "cultes", "label": "Films cultes" },
+        { "id": "animation", "label": "Films d'animation" },
+        { "id": "scifi", "label": "Science-Fiction" },
+        { "id": "horreur", "label": "Horreur" },
+        { "id": "action", "label": "Action" },
+        { "id": "comedie", "label": "Comédie" }
+      ]
+    },
+    {
+      "id": "sports",
+      "label": "Sports",
+      "emoji": "⚽",
+      "color": "#22c55e",
+      "description": "Football, basket, automobiles, sports de combat et Jeux olympiques.",
+      "subs": [
+        { "id": "football", "label": "Football" },
+        { "id": "ucl", "label": "Ligue des Champions" },
+        { "id": "worldcup", "label": "Coupe du Monde" },
+        { "id": "liga", "label": "Liga" },
+        { "id": "premierleague", "label": "Premier League" },
+        { "id": "nba", "label": "NBA" },
+        { "id": "basketball", "label": "Basketball" },
+        { "id": "f1", "label": "Formule 1" },
+        { "id": "motogp", "label": "MotoGP" },
+        { "id": "tennis", "label": "Tennis" },
+        { "id": "ufc", "label": "UFC" },
+        { "id": "boxe", "label": "Boxe" },
+        { "id": "olympics", "label": "Jeux Olympiques" }
+      ]
+    },
+    {
+      "id": "gaming",
+      "label": "Jeux Vidéo",
+      "emoji": "🎮",
+      "color": "#8b5cf6",
+      "description": "Les licences emblématiques du jeu vidéo, du rétro au compétitif.",
+      "subs": [
+        { "id": "minecraft", "label": "Minecraft" },
+        { "id": "fortnite", "label": "Fortnite" },
+        { "id": "gta", "label": "GTA" },
+        { "id": "cod", "label": "Call of Duty" },
+        { "id": "eafc", "label": "EA Sports FC" },
+        { "id": "roblox", "label": "Roblox" },
+        { "id": "nintendo", "label": "Nintendo" },
+        { "id": "pokemongames", "label": "Jeux Pokémon" },
+        { "id": "playstation", "label": "PlayStation" },
+        { "id": "xbox", "label": "Xbox" },
+        { "id": "pcgaming", "label": "PC Gaming" },
+        { "id": "retro", "label": "Jeux rétro" },
+        { "id": "indie", "label": "Jeux indépendants" },
+        { "id": "competitive", "label": "Jeux compétitifs" }
+      ]
+    },
+    {
+      "id": "culture",
+      "label": "Culture Générale",
+      "emoji": "🌍",
+      "color": "#0ea5e9",
+      "description": "Histoire, géographie, sciences, technique, lettres et arts.",
+      "subs": [
+        { "id": "histoire", "label": "Histoire" },
+        { "id": "geographie", "label": "Géographie" },
+        { "id": "capitales", "label": "Capitales du monde" },
+        { "id": "drapeaux", "label": "Drapeaux" },
+        { "id": "sciences", "label": "Sciences" },
+        { "id": "technologie", "label": "Technologie" },
+        { "id": "musique", "label": "Musique" },
+        { "id": "cinema", "label": "Cinéma" },
+        { "id": "litterature", "label": "Littérature" },
+        { "id": "france", "label": "La France" },
+        { "id": "monde", "label": "Le Monde" },
+        { "id": "internet", "label": "Internet" },
+        { "id": "espace", "label": "Espace" },
+        { "id": "nature", "label": "Nature" },
+        { "id": "inventions", "label": "Inventions" }
+      ]
+    },
+    {
+      "id": "dessins",
+      "label": "Dessins Animés & Jeunesse",
+      "emoji": "🧸",
+      "color": "#ec4899",
+      "description": "Les séries animées de la jeunesse et les cartoons classiques.",
+      "subs": [
+        { "id": "miraculous", "label": "Miraculous" },
+        { "id": "peppa", "label": "Peppa Pig" },
+        { "id": "arthur", "label": "Arthur" },
+        { "id": "disneychannel", "label": "Disney Channel" },
+        { "id": "titeuf", "label": "Titeuf" },
+        { "id": "cartoons", "label": "Cartoon classics" }
+      ]
+    },
+    {
+      "id": "maths",
+      "label": "Maths & Logique",
+      "emoji": "💨",
+      "color": "#14b8a6",
+      "description": "Calcul, géométrie, probabilités, casse-tête et suites numériques.",
+      "subs": [
+        { "id": "calcul", "label": "Calcul" },
+        { "id": "geometrie", "label": "Géométrie" },
+        { "id": "probabilites", "label": "Probabilités" },
+        { "id": "casse", "label": "Casse-tête" },
+        { "id": "suites", "label": "Suites numériques" },
+        { "id": "mathsculture", "label": "Culture maths" }
+      ]
+    },
+    {
+      "id": "jeux",
+      "label": "Jeux de Société & Cartes",
+      "emoji": "🎲",
+      "color": "#eab308",
+      "description": "Règles, tactiques et histoire des jeux de société et de cartes.",
+      "subs": [
+        { "id": "monopoly", "label": "Monopoly" },
+        { "id": "uno", "label": "UNO" },
+        { "id": "scrabble", "label": "Scrabble" },
+        { "id": "echecs", "label": "Échecs" },
+        { "id": "cartes", "label": "Cartes à jouer" },
+        { "id": "anciens", "label": "Jeux anciens" },
+        { "id": "moderne", "label": "Jeux modernes" }
+      ]
+    },
+    {
+      "id": "cuisine",
+      "label": "Cuisine & Gastronomie",
+      "emoji": "🍕",
+      "color": "#ef4444",
+      "description": "Cuisines du monde, plats emblématiques et techniques de base.",
+      "subs": [
+        { "id": "cuisinefr", "label": "Cuisine française" },
+        { "id": "cuisineit", "label": "Cuisine italienne" },
+        { "id": "cuisinejp", "label": "Cuisine japonaise" },
+        { "id": "cuisineus", "label": "Cuisine américaine" },
+        { "id": "cuisineworld", "label": "Gastronomie mondiale" },
+        { "id": "techniques", "label": "Techniques culinaires" }
+      ]
+    },
+    {
+      "id": "francais",
+      "label": "Français & Langues",
+      "emoji": "✍️",
+      "color": "#a855f7",
+      "description": "Grammaire, orthographe, littérature classique et étymologie.",
+      "subs": [
+        { "id": "grammaire", "label": "Grammaire" },
+        { "id": "orthographe", "label": "Orthographe" },
+        { "id": "classique", "label": "Littérature classique" },
+        { "id": "etymologie", "label": "Étymologie" },
+        { "id": "expressions", "label": "Expressions" },
+        { "id": "langues", "label": "Langues du monde" }
+      ]
+    }
+  ]
+}

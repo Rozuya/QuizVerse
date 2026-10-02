@@ -1,0 +1,23 @@
+{
+  "format": "modules",
+  "version": 1,
+  "note": "QuizVerse charge ses questions sans dépendance externe. Deux formats possibles : (1) ce format « modules » : chaque fichier listé dans « files » est un module JavaScript qui exporte un tableau de questions ; (2) un format « inline » : remplacer ce fichier par { \"format\": \"inline\", \"questions\": [ ... ] } pour tout regrouper dans un seul JSON. Le nombre de questions, les identifiants uniques, le dédoublonnage et les sources sont recalculés automatiquement au chargement : voir le README.",
+  "helper": "tools/authoring/helper.mjs",
+  "exclude": [
+    ["dessins", "klass"]
+  ],
+  "files": [
+    "tools/authoring/questions/animes-a.mjs",
+    "tools/authoring/questions/animes-b.mjs",
+    "tools/authoring/questions/films.mjs",
+    "tools/authoring/questions/sports.mjs",
+    "tools/authoring/questions/gaming.mjs",
+    "tools/authoring/questions/culture-a.mjs",
+    "tools/authoring/questions/culture-b.mjs",
+    "tools/authoring/questions/dessins.mjs",
+    "tools/authoring/questions/maths.mjs",
+    "tools/authoring/questions/jeux.mjs",
+    "tools/authoring/questions/cuisine.mjs",
+    "tools/authoring/questions/francais.mjs"
+  ]
+}

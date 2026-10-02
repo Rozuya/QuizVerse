@@ -1,0 +1,17 @@
+{
+  "name": "QuizVerse — Teste tes connaissances",
+  "short_name": "QuizVerse",
+  "description": "QuizVerse est une plateforme de quiz 100 % solo sur les animés, films, séries, sports, jeux vidéo et culture générale.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#07070f",
+  "theme_color": "#07070f",
+  "categories": ["games", "education", "entertainment"],
+  "icons": [
+    { "src": "./assets/icons/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

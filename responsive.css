@@ -1,0 +1,166 @@
+/* ==========================================================================
+   QuizVerse — responsive
+   Adapté : smartphone (320-480), tablette (600-1024), laptop (1280),
+            desktop (1600+), très grands écrans (2200+).
+   ========================================================================== */
+
+/* --------------------------------------------------------- Très grands --- */
+@media (min-width: 1800px) {
+  :root { --radius: 20px; --radius-lg: 30px; }
+  .qv-main { max-width: 1560px; }
+  .qv-header__inner, .qv-footer__inner { max-width: 1560px; }
+  body { font-size: 17px; }
+  .grid--quiz { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .grid--cats { grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); }
+}
+
+@media (min-width: 2400px) {
+  .qv-main, .qv-header__inner, .qv-footer__inner { max-width: 1760px; }
+}
+
+/* ------------------------------------------------------------- Laptop --- */
+@media (max-width: 1280px) {
+  .qv-nav a { padding: 8px 9px; font-size: .82rem; }
+  .searchbox { flex-basis: 190px; }
+}
+
+@media (max-width: 1120px) {
+  .qv-nav { display: none; }
+  .nav-toggle { display: grid; }
+  .qv-nav.is-open {
+    display: flex; flex-direction: column; align-items: stretch;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    padding: 10px;
+    gap: 2px;
+    z-index: 70;
+    max-height: 78vh; overflow-y: auto;
+  }
+  .qv-nav.is-open a { padding: 12px 14px; font-size: .92rem; }
+  .qv-nav.is-open a.is-active::after { display: none; }
+  .qv-header__inner { position: relative; flex-wrap: wrap; }
+  .searchbox { order: 10; flex-basis: 100%; margin-top: 2px; }
+  .searchbox__kbd { display: none; }
+}
+
+@media (max-width: 980px) {
+  .hero__grid { grid-template-columns: 1fr; }
+  .hero__art { max-width: 480px; margin: 0 auto; }
+  .quiz-card__fav { opacity: 1; }
+}
+
+/* ------------------------------------------------------------ Tablette --- */
+@media (max-width: 860px) {
+  .grid--2, .grid--3 { grid-template-columns: 1fr; }
+  .quiz-topbar { top: 56px; flex-wrap: wrap; gap: 10px; }
+  .quiz-topbar__bar { order: 3; flex-basis: 100%; }
+  .music-player { width: min(300px, calc(100vw - 32px)); }
+  .page-head__row { flex-direction: column; align-items: stretch; }
+  .toasts { bottom: 96px; left: 12px; right: 12px; max-width: none; }
+}
+
+@media (max-width: 720px) {
+  body { font-size: 15.5px; }
+  .grid--4 { grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); }
+  .grid--badges { grid-template-columns: repeat(auto-fill, minmax(min(126px, 100%), 1fr)); }
+  .grid--quiz { grid-template-columns: 1fr; }
+  .hero__tile { font-size: 1.5rem; }
+  .hero__stats { gap: 18px; }
+  .answers { gap: 9px; }
+  .answer { padding: 12px 14px; font-size: .92rem; }
+  .results__score { gap: 8px; }
+  .bulk-bar { left: 12px; right: 12px; bottom: 12px; transform: none; justify-content: space-between; border-radius: 14px; }
+  .card { padding: 15px; }
+  .question-card { padding: 18px 15px; border-radius: var(--radius); }
+  .modal__actions { flex-direction: column-reverse; }
+  .modal__actions .btn { width: 100%; }
+  .hbar__row { grid-template-columns: minmax(70px, 40%) 1fr auto; }
+}
+
+/* --------------------------------------------------------- Smartphones --- */
+@media (max-width: 560px) {
+  .qv-main { padding: 18px 13px 104px; }
+  .brand__tag { display: none; }
+  .brand__name { font-size: 1.05rem; }
+  .brand__mark { width: 34px; height: 34px; font-size: .95rem; }
+  .icon-btn { width: 35px; height: 35px; }
+  .hero { padding-top: 22px; }
+  .hero__cta .btn { flex: 1 1 auto; min-width: 145px; }
+  .hero__art { grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 300px; margin: 0 auto; }
+  .hero__tile__emoji { font-size: 1.4rem; }
+  .grid--stats { grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)); }
+  .stat { padding: 13px 14px; }
+  .stat__value { font-size: 1.4rem; }
+  .grid--avatars { grid-template-columns: repeat(auto-fill, minmax(min(76px, 100%), 1fr)); }
+  .grid--badges { grid-template-columns: repeat(auto-fill, minmax(min(112px, 100%), 1fr)); }
+  .badge-tile { padding: 13px 8px; }
+  .badge-tile__icon { width: 44px; height: 44px; font-size: 1.3rem; }
+  .badge-tile__name { font-size: .72rem; }
+  .music-player {
+    left: 8px; right: 8px; bottom: 8px; width: auto;
+    border-radius: 14px;
+  }
+  /* Sur mobile le lecteur reste une barre compacte : le réglage du volume
+     s'ouvre au toucher sur l'en-tête du lecteur. */
+  .music-player .music-player__expand { display: none; }
+  .music-player.is-open .music-player__expand { display: flex; }
+  .music-player.is-mini { width: 62px; left: auto; right: 8px; }
+  .music-player.is-mini .music-player__info,
+  .music-player.is-mini .music-player__btns .music-player__btn:not(.music-player__btn--main) { display: none; }
+  .music-player.is-mini .music-player__main { padding: 6px; }
+  .toasts { bottom: 84px; left: 10px; right: 10px; }
+  .countdown { font-size: 4.2rem; }
+  .quiz-topbar { padding: 10px 12px; }
+  .quiz-topbar__timer { font-size: .9rem; padding: 3px 9px; }
+  .quiz-topbar__score { display: none; }
+  .question-card__text { font-size: 1.12rem; }
+  .answer { padding: 11px 12px; gap: 10px; }
+  .answer__key { width: 25px; height: 25px; font-size: .72rem; }
+  .answers--2 { grid-template-columns: 1fr; }
+  .quiz-actions { flex-direction: column-reverse; align-items: stretch; }
+  .quiz-actions__right { margin-left: 0; }
+  .quiz-actions__right .btn { flex: 1; }
+  .review__line b { width: 60px; }
+  .level-badge { width: 52px; height: 52px; }
+  .avatar-96 { width: 78px; height: 78px; }
+  .avatar-140 { width: 100px; height: 100px; }
+  .filters { padding: 11px 12px; gap: 8px; }
+  .tab { padding: 9px 11px; font-size: .82rem; }
+  .segmented--full { grid-template-columns: repeat(2, 1fr); }
+  .sub-grid { grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)); }
+  .section__head { align-items: center; }
+}
+
+@media (max-width: 400px) {
+  body { font-size: 15px; }
+  .qv-main { padding: 14px 10px 88px; }
+  .hero__tile { font-size: 1.25rem; border-radius: 12px; }
+  .hero__stat b { font-size: 1.25rem; }
+  .grid--stats { grid-template-columns: 1fr 1fr; }
+  .btn { padding: 10px 15px; font-size: .86rem; }
+  .btn--primary { font-size: .76rem; }
+  .chip { padding: 7px 11px; font-size: .78rem; }
+  .segmented--full { grid-template-columns: 1fr; }
+  .challenge-card { padding: 13px 14px; }
+  .modal__box { padding: 20px 16px; }
+}
+
+/* ---------------------------------------------------------- Paysage --- */
+@media (max-height: 520px) and (orientation: landscape) {
+  .music-player { transform: scale(.88); transform-origin: bottom left; }
+  .quiz-screen { padding-top: 8px; }
+  .question-card { padding: 16px 18px; }
+  .hero { padding-top: 22px; padding-bottom: 18px; }
+  .hero__art { display: none; }
+  .hero__grid { grid-template-columns: 1fr; }
+  .mobile-bar { display: flex; }
+}
+
+/* ------------------------------------------------------------- Écriture */
+@media print {
+  .qv-header, .qv-footer, .music-player, .toasts, .qv-orbs, .qv-grid, .bulk-bar { display: none !important; }
+  body { background: #fff; color: #000; }
+  .card, .panel { border: 1px solid #ccc; background: #fff; }
+}

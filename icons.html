@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>QuizVerse — fabrique d'icônes (outil de développement)</title>
+<style>
+  body { margin: 0; background: #07070f; color: #eef0ff; font-family: Inter, "Segoe UI", system-ui, sans-serif; padding: 28px; }
+  h2 { font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: #7e82a8; margin: 26px 0 12px; }
+  .row { display: flex; gap: 22px; align-items: flex-end; flex-wrap: wrap; }
+  .cell { text-align: center; }
+  .cell span { display: block; font-size: 11px; color: #7e82a8; margin-top: 8px; }
+
+  /* ---------- Blocs à capturer ---------- */
+  #favicon-square { width: 512px; height: 512px; border-radius: 0; overflow: hidden; }
+  #og-image { width: 1200px; height: 630px; overflow: hidden; position: relative; }
+
+  .mark-bg { position: absolute; inset: 0; }
+  .mark-content { position: absolute; inset: 0; display: grid; place-items: center; }
+</style>
+</head>
+<body>
+
+<h2>Favicon carré (512 × 512)</h2>
+<div class="row">
+  <div class="cell">
+    <svg id="favicon-square" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#7c5cff"/>
+          <stop offset="55%" stop-color="#6d4aff"/>
+          <stop offset="100%" stop-color="#22d3ee"/>
+        </linearGradient>
+        <radialGradient id="g2" cx="30%" cy="18%" r="80%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity=".34"/>
+          <stop offset="60%" stop-color="#ffffff" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="16"/>
+        </filter>
+      </defs>
+      <rect width="512" height="512" rx="112" fill="#07070f"/>
+      <rect x="18" y="18" width="476" height="476" rx="98" fill="url(#g1)"/>
+      <rect x="18" y="18" width="476" height="476" rx="98" fill="url(#g2)"/>
+      <circle cx="256" cy="256" r="150" fill="none" stroke="#ffffff" stroke-opacity=".14" stroke-width="10"/>
+      <circle cx="256" cy="256" r="106" fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="6"/>
+      <text x="256" y="236" text-anchor="middle" dominant-baseline="middle"
+            font-family="Inter, Segoe UI, system-ui, Arial, sans-serif" font-size="146"
+            font-weight="800" letter-spacing="-9" fill="#ffffff">QV</text>
+      <text x="256" y="368" text-anchor="middle" dominant-baseline="middle"
+            font-family="Inter, Segoe UI, system-ui, Arial, sans-serif" font-size="36"
+            font-weight="700" letter-spacing="13" fill="#ffffff" fill-opacity=".82">QUIZVERSE</text>
+    </svg>
+    <span>favicon-512</span>
+  </div>
+</div>
+
+<h2>Image Open Graph (1200 × 630)</h2>
+<div class="row">
+  <div class="cell">
+    <svg id="og-image" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#07070f"/>
+          <stop offset="50%" stop-color="#12122a"/>
+          <stop offset="100%" stop-color="#07070f"/>
+        </linearGradient>
+        <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#7c5cff"/>
+          <stop offset="100%" stop-color="#22d3ee"/>
+        </linearGradient>
+        <radialGradient id="halo1" cx="12%" cy="0%" r="70%">
+          <stop offset="0%" stop-color="#7c5cff" stop-opacity=".5"/>
+          <stop offset="100%" stop-color="#7c5cff" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="halo2" cx="90%" cy="10%" r="60%">
+          <stop offset="0%" stop-color="#22d3ee" stop-opacity=".38"/>
+          <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="halo3" cx="60%" cy="110%" r="60%">
+          <stop offset="0%" stop-color="#f472b6" stop-opacity=".24"/>
+          <stop offset="100%" stop-color="#f472b6" stop-opacity="0"/>
+        </radialGradient>
+        <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
+          <path d="M46 0H0v46" fill="none" stroke="#ffffff" stroke-opacity=".05"/>
+        </pattern>
+      </defs>
+      <rect width="1200" height="630" fill="url(#bg)"/>
+      <rect width="1200" height="630" fill="url(#halo1)"/>
+      <rect width="1200" height="630" fill="url(#halo2)"/>
+      <rect width="1200" height="630" fill="url(#halo3)"/>
+      <rect width="1200" height="630" fill="url(#grid)"/>
+
+      <!-- logo -->
+      <g transform="translate(90 96)">
+        <rect width="104" height="104" rx="30" fill="url(#accent)"/>
+        <text x="52" y="56" text-anchor="middle" dominant-baseline="middle"
+              font-family="Inter, Segoe UI, system-ui, Arial, sans-serif" font-size="46" font-weight="800"
+              letter-spacing="-3" fill="#ffffff">QV</text>
+        <text x="128" y="46" dominant-baseline="middle"
+              font-family="Inter, Segoe UI, system-ui, Arial, sans-serif" font-size="44" font-weight="800"
+              fill="#ffffff">QuizVerse</text>
+        <text x="130" y="80" dominant-baseline="middle"
+              font-family="Inter, Segoe UI, system-ui, Arial, sans-serif" font-size="20" font-weight="600"
+              letter-spacing="4" fill="#b9bcd8">TESTE TES CONNAISSANCES</text>
+      </g>
+
+      <text x="90" y="330" font-family="Inter, Segoe UI, system-ui, Arial, sans-serif" font-size="82"
+            font-weight="900" letter-spacing="-3" fill="#ffffff">DES MILLIERS DE<tspan x="90" dy="96" fill="url(#accent)">QUESTIONS.</tspan></text>
+      <text x="90" y="470" font-family="Inter, Segoe UI, system-ui, Arial, sans-serif" font-size="30"
+            font-weight="500" fill="#b9bcd8">Animés · Films · Séries · Sports · Jeux vidéo · Culture générale</text>
+
+      <g transform="translate(90 520)" font-family="Inter, Segoe UI, system-ui, Arial, sans-serif">
+        <rect width="230" height="52" rx="26" fill="#ffffff" fill-opacity=".08" stroke="#ffffff" stroke-opacity=".16"/>
+        <text x="115" y="27" text-anchor="middle" dominant-baseline="middle" font-size="21" font-weight="700" fill="#eef0ff">100 % solo · hors ligne</text>
+        <rect x="248" width="200" height="52" rx="26" fill="#ffffff" fill-opacity=".08" stroke="#ffffff" stroke-opacity=".16"/>
+        <text x="348" y="27" text-anchor="middle" dominant-baseline="middle" font-size="21" font-weight="700" fill="#eef0ff">XP · badges · défis</text>
+      </g>
+    </svg>
+    <span>og-image</span>
+  </div>
+</div>
+
+<script>
+/**
+ * Rend chaque SVG en PNG et déclenche un téléchargement.
+ * Utilisé pour produire assets/icons/*.png et assets/images/og-image.png.
+ * (outil de développement uniquement — aucun code de ce fichier n'est livré dans le site)
+ */
+function svgToPng(svgEl, w, h, fileName, mime, quality) {
+  return new Promise(function (resolve, reject) {
+    const clone = svgEl.cloneNode(true);
+    clone.setAttribute('width', w);
+    clone.setAttribute('height', h);
+    const xml = new XMLSerializer().serializeToString(clone);
+    const url = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(xml);
+    const img = new Image();
+    img.onload = function () {
+      const c = document.createElement('canvas');
+      c.width = w; c.height = h;
+      const ctx = c.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+      c.toBlob(function (blob) {
+        if (!blob) { reject(new Error('toBlob a échoué')); return; }
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 800);
+        resolve(fileName + ' (' + Math.round(blob.size / 1024) + ' Ko)');
+      }, mime || 'image/png', quality);
+    };
+    img.onerror = function () { reject(new Error('chargement SVG impossible')); };
+    img.src = url;
+  });
+}
+
+window.exportIcons = async function () {
+  const done = [];
+  const sq = document.getElementById('favicon-square');
+  const og = document.getElementById('og-image');
+  done.push(await svgToPng(sq, 512, 512, 'favicon-512.png'));
+  done.push(await svgToPng(sq, 192, 192, 'favicon-192.png'));
+  done.push(await svgToPng(sq, 180, 180, 'apple-touch-icon.png'));
+  done.push(await svgToPng(sq, 64, 64, 'favicon-64.png'));
+  done.push(await svgToPng(og, 1200, 630, 'og-image.jpg', 'image/jpeg', 0.88));
+  done.push(await svgToPng(og, 1200, 630, 'og-image.png'));
+  return done;
+};
+</script>
+
+</body>
+</html>
